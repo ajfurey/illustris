@@ -1,67 +1,76 @@
-<mxfile host="app.diagrams.net" modified="2021-03-09T21:49:56.336Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36 Edg/89.0.774.45" etag="eH0xmPBMb3qs2kPascfP" version="14.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-09T22:24:16.083Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36 Edg/89.0.774.45" etag="To_02UGM2sOfYs41DAcu" version="14.4.6" type="github">
   <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
     <mxGraphModel dx="1141" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="3nuBFxr9cyL0pnOWT2aG-1" value=":Referring Dr." style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="80" y="80" width="100" height="400" as="geometry" />
+          <mxGeometry x="10" y="70" width="100" height="490" as="geometry" />
         </mxCell>
         <mxCell id="3nuBFxr9cyL0pnOWT2aG-2" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" parent="3nuBFxr9cyL0pnOWT2aG-1" vertex="1">
-          <mxGeometry x="45" y="55" width="10" height="325" as="geometry" />
+          <mxGeometry x="45" y="55" width="10" height="385" as="geometry" />
         </mxCell>
         <mxCell id="3nuBFxr9cyL0pnOWT2aG-5" value=":Order" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="720" y="80" width="100" height="400" as="geometry" />
+          <mxGeometry x="740" y="70" width="100" height="490" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-9" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="3nuBFxr9cyL0pnOWT2aG-5">
-          <mxGeometry x="45" y="55" width="10" height="325" as="geometry" />
+          <mxGeometry x="45" y="55" width="10" height="425" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-5" value=":Radiology Dr." style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="460" y="80" width="100" height="400" as="geometry" />
+          <mxGeometry x="610" y="70" width="100" height="490" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-6" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="KH_maGALRaM7N10p8AnS-5">
-          <mxGeometry x="45" y="160" width="10" height="105" as="geometry" />
+          <mxGeometry x="45" y="250" width="10" height="80" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-7" value=":Technician" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="220" y="80" width="100" height="400" as="geometry" />
+          <mxGeometry x="375" y="70" width="100" height="490" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-8" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="KH_maGALRaM7N10p8AnS-7">
-          <mxGeometry x="45" y="90" width="10" height="125" as="geometry" />
+          <mxGeometry x="45" y="155" width="10" height="105" as="geometry" />
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-11" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="3nuBFxr9cyL0pnOWT2aG-1">
+        <mxCell id="KH_maGALRaM7N10p8AnS-11" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3nuBFxr9cyL0pnOWT2aG-5" target="3nuBFxr9cyL0pnOWT2aG-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="770" y="450" as="sourcePoint" />
             <mxPoint x="150" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="120" y="490" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-12" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="765" y="180" as="sourcePoint" />
-            <mxPoint x="275" y="180" as="targetPoint" />
+        <mxCell id="KH_maGALRaM7N10p8AnS-39" value="View Order" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-11">
+          <mxGeometry x="0.0644" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-13" value=":Modality" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="80" width="100" height="400" as="geometry" />
+          <mxGeometry x="490" y="70" width="100" height="490" as="geometry" />
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-14" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="KH_maGALRaM7N10p8AnS-13">
-          <mxGeometry x="45" y="120" width="10" height="40" as="geometry" />
+          <mxGeometry x="45" y="190" width="10" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-15" value="" style="endArrow=classic;html=1;entryX=-0.24;entryY=0.235;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="269.5" y="220.00000000000006" as="sourcePoint" />
-            <mxPoint x="392.5999999999999" y="220.00000000000006" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-16" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="3nuBFxr9cyL0pnOWT2aG-5">
+        <mxCell id="KH_maGALRaM7N10p8AnS-16" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="KH_maGALRaM7N10p8AnS-14" target="3nuBFxr9cyL0pnOWT2aG-5">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="410" y="220" as="sourcePoint" />
             <mxPoint x="533.0999999999999" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="290" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-17" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3nuBFxr9cyL0pnOWT2aG-5" target="KH_maGALRaM7N10p8AnS-5">
+        <mxCell id="KH_maGALRaM7N10p8AnS-45" value="Upload imaging" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-16">
+          <mxGeometry x="-0.2965" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-17" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="630" y="260" as="sourcePoint" />
-            <mxPoint x="753.0999999999999" y="260" as="targetPoint" />
+            <mxPoint x="789.5" y="327" as="sourcePoint" />
+            <mxPoint x="659.5" y="327" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-46" value="Image review" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-17">
+          <mxGeometry x="-0.1308" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="KH_maGALRaM7N10p8AnS-18" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3nuBFxr9cyL0pnOWT2aG-1" target="3nuBFxr9cyL0pnOWT2aG-5">
@@ -73,10 +82,128 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-19" value="" style="endArrow=classic;html=1;" edge="1" parent="1" target="3nuBFxr9cyL0pnOWT2aG-5">
+        <mxCell id="KH_maGALRaM7N10p8AnS-38" value="Create Order" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-18">
+          <mxGeometry x="-0.8288" y="3" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-21" value=": Receptionist" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="70" width="100" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-22" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="KH_maGALRaM7N10p8AnS-21">
+          <mxGeometry x="45" y="90" width="10" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-23" value="Order Setup" style="endArrow=classic;html=1;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="520" y="320" as="sourcePoint" />
-            <mxPoint x="580.5" y="320" as="targetPoint" />
+            <mxPoint x="785.5" y="171.5" as="sourcePoint" />
+            <mxPoint x="190" y="171.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="172" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-24" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="198" as="sourcePoint" />
+            <mxPoint x="305.5" y="198" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="240" y="198" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-25" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="310" y="200" as="sourcePoint" />
+            <mxPoint x="790" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-41" value="Update patient info" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-25">
+          <mxGeometry x="-0.125" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-26" value=":Medical Assistant" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="70" width="100" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-27" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="KH_maGALRaM7N10p8AnS-26">
+          <mxGeometry x="45" y="113.75" width="10" height="266.25" as="geometry" />
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-29" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="KH_maGALRaM7N10p8AnS-9" target="KH_maGALRaM7N10p8AnS-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="530" as="sourcePoint" />
+            <mxPoint x="90" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-40" value="Send Bill to reception" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-29">
+          <mxGeometry x="-0.0798" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-30" value="" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;curved=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="309.5" y="230" as="sourcePoint" />
+            <mxPoint x="189.5" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-44" value="Order progress" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-30">
+          <mxGeometry x="-0.2417" y="-1" relative="1" as="geometry">
+            <mxPoint x="-14.5" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-32" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="309.5" y="255" as="sourcePoint" />
+            <mxPoint x="424.5" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-42" value="Proceed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-32">
+          <mxGeometry x="-0.2957" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-34" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="424.5" y="276" as="sourcePoint" />
+            <mxPoint x="539.5" y="276" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="276" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-43" value="Perform imaging" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-34">
+          <mxGeometry x="0.2957" y="-2" relative="1" as="geometry">
+            <mxPoint x="-19.5" y="-0.5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-33" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="789.5" y="410" as="sourcePoint" />
+            <mxPoint x="309.5" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-48" value="Process complete" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-33">
+          <mxGeometry x="0.1896" y="-3" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-36" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="309.5" y="440" as="sourcePoint" />
+            <mxPoint x="785" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-37" value="Update Billing" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-36">
+          <mxGeometry x="-0.2114" y="4" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KH_maGALRaM7N10p8AnS-47" value="Analysis" style="endArrow=classic;html=1;" edge="1" parent="1" source="KH_maGALRaM7N10p8AnS-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="385" as="sourcePoint" />
+            <mxPoint x="785" y="385" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
