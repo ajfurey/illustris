@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-03-09T22:39:53.573Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36 Edg/89.0.774.45" etag="fpRjjUeViqoina-KI85c" version="14.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-09T22:45:03.714Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36 Edg/89.0.774.45" etag="7XNcIc2JjtffmNGvNQ-m" version="14.4.6" type="github">
   <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
     <mxGraphModel dx="1141" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -139,7 +139,7 @@
             <mxPoint x="189.5" y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KH_maGALRaM7N10p8AnS-44" value="Order progress" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-30">
+        <mxCell id="KH_maGALRaM7N10p8AnS-44" value="Progress" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KH_maGALRaM7N10p8AnS-30">
           <mxGeometry x="-0.2417" y="-1" relative="1" as="geometry">
             <mxPoint x="-14.5" y="1" as="offset" />
           </mxGeometry>
