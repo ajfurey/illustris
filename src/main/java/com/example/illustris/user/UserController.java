@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/user")
+@RequestMapping(path = "api/v1/User")
 public class UserController {
     private final UserService userService;
 
@@ -26,7 +26,7 @@ public class UserController {
 		return userService.getUsers();
 	}
 
-    @PostMapping
+    @PostMapping(path= "add")
     public void registerNewUser(@RequestBody User user){
         userService.addNewUser(user);
     }

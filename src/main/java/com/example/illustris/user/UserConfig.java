@@ -1,6 +1,5 @@
 package com.example.illustris.user;
 
-import java.util.List;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -14,8 +13,8 @@ public class UserConfig {
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {
             User Andy= new User("Andy", "Furey", "ajfure6252@gmail.com", "password", "555-555-5555", LocalDate.of(1991, Month.APRIL, 15));
-
-            repository.saveAll(List.of(Andy));
+            User Hannah= new User("Hannah", "Smith", "yeahnah@gmail.com", "password", "111-111-1111", LocalDate.of(1993, Month.JANUARY, 1));
+            repository.save(Hannah);
         };
     }
-}
+}/**/
