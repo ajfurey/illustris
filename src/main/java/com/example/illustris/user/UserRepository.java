@@ -1,3 +1,8 @@
+//@Author Andrew Furey
+//@Date: 3–15–2021
+//@Email:
+//@ClassName: UserRepository
+
 package com.example.illustris.user;
 
 import java.util.Optional;

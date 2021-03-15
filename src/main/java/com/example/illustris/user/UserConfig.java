@@ -1,7 +1,13 @@
+//@Author Andrew Furey
+//@Date: 3–15–2021
+//@Email:
+//@ClassName: UserConfig
+
 package com.example.illustris.user;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +18,12 @@ public class UserConfig {
     @Bean
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {
-            User Andy= new User("Andy", "Furey", "ajfure6252@gmail.com", "password", "555-555-5555", LocalDate.of(1991, Month.APRIL, 15));
-            User Hannah= new User("Hannah", "Smith", "yeahnah@gmail.com", "password", "111-111-1111", LocalDate.of(1993, Month.JANUARY, 1));
-            repository.save(Hannah);
+            User Nick= new User("Nick", "Fury", "nfury01", "nfury@shield.com", "GooseIsNotAC@", "555-555-5555", 
+            LocalDate.of(1970, Month.APRIL, 15), true, false, true, "Director",LocalDate.of(1987, Month.JANUARY, 1));
+
+            User Hannah= new User("Hannah", "Smith", "hsmith04","yeahnah@gmail.com", "password", "111-111-1111", 
+            LocalDate.of(1993, Month.JANUARY, 1),true, true, false, "Technician",LocalDate.of(2015, Month.JUNE, 15));
+            repository.saveAll(List.of(Nick, Hannah));
         };
     }
 }/**/
