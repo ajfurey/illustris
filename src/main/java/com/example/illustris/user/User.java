@@ -7,6 +7,7 @@ package com.example.illustris.user;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,18 +22,43 @@ public class User {
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    @Column(name = "id", updatable = false)
     private Long id;
+
+    @Column(name = "firstName", nullable = false, length = 30)
     private String firstName;
+
+    @Column(name = "lastName", nullable = false, length = 30)
     private String lastName;
+
+    @Column(name = "username", nullable = false, length = 30)
     private String username;
+
+    @Column(name = "email", nullable = false, length = 36)
     private String email;
+
+    @Column(name = "password", nullable = false, length = 16)
     private String password;
+
+    @Column(name = "phone", nullable = false, length = 12)
     private String phone;
+
+    @Column(name = "dob", nullable = false)
     private LocalDate dob;
+
+    @Column(name = "is_active", nullable = false)
     private Boolean is_active;
+
+    @Column(name = "is_medical", nullable = false)
     private Boolean is_medical;
+
+    @Column(name = "is_admin", nullable = false)
     private Boolean is_admin;
+
+    @Column(name = "position", nullable = false, length = 30)
     private String position;
+    
+    @Column(name = "hireDate", nullable = false)
     private LocalDate hireDate;
 
     //empty constructor

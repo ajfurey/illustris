@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UserConfig {
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository repository){
+    CommandLineRunner userCommandLineRunner(UserRepository repository){
         return args -> {
             User Nick= new User("Nick", "Fury", "nfury01", "nfury@shield.com", "GooseIsNotAC@", "555-555-5555", 
             LocalDate.of(1970, Month.APRIL, 15), true, false, true, "Director",LocalDate.of(1987, Month.JANUARY, 1));
