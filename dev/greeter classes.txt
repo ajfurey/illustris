@@ -1,0 +1,44 @@
+**********Greeter.java**************************************************
+
+package com.example.illustris;
+
+public class Greeter {
+
+	private final long id;
+	private final String content;
+
+	public Greeter(long id, String content) {
+		this.id = id;
+		this.content = content;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getContent() {
+		return content;
+	}
+}
+
+**************GreeterController.java*********************************
+
+package com.example.illustris;
+
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class GreeterController {
+
+	private static final String template = "Hello, %S!";
+	private final AtomicLong counter = new AtomicLong();
+
+	@GetMapping("/greeter")
+	public Greeter greeter(@RequestParam( value = "name", defaultValue = "World") String name) {
+		return new Greeter(counter.incrementAndGet(), String.format(template, name));
+	}
+
+}

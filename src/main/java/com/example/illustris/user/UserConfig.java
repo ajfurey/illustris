@@ -19,10 +19,10 @@ public class UserConfig {
     CommandLineRunner userCommandLineRunner(UserRepository repository){
         return args -> {
             User Nick= new User("Nick", "Fury", "nfury01", "nfury@shield.com", "GooseIsNotAC@", "555-555-5555", 
-            LocalDate.of(1970, Month.APRIL, 15), true, false, true, "Director",LocalDate.of(1987, Month.JANUARY, 1));
+            LocalDate.of(1970, Month.APRIL, 15), true, UserRole.ADMIN, false, true, "Director",LocalDate.of(1987, Month.JANUARY, 1));
 
             User Hannah= new User("Hannah", "Smith", "hsmith04","yeahnah@gmail.com", "password", "111-111-1111", 
-            LocalDate.of(1993, Month.JANUARY, 1),true, true, false, "Technician",LocalDate.of(2015, Month.JUNE, 15));
+            LocalDate.of(1993, Month.JANUARY, 1),true, UserRole.MEDICAL, true, false, "Technician",LocalDate.of(2015, Month.JUNE, 15));
             repository.saveAll(List.of(Nick, Hannah));
         };
     }

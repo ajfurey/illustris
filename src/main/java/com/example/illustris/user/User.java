@@ -6,6 +6,7 @@
 package com.example.illustris.user;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,10 +16,16 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+
 //TODO: add all user fields
 @Entity
 @Table(name = "user", schema = "public")
-public class User {
+public class User{
+//public class User implements UserDetails{
+    //private static final long serialVersionUID = 1L;
+
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
@@ -49,6 +56,9 @@ public class User {
     @Column(name = "is_active", nullable = false)
     private Boolean is_active;
 
+    @Column(name = "userRole", nullable = false)
+    private UserRole userRole;
+
     @Column(name = "is_medical", nullable = false)
     private Boolean is_medical;
 
@@ -61,13 +71,15 @@ public class User {
     @Column(name = "hireDate", nullable = false)
     private LocalDate hireDate;
 
+    
+
     //empty constructor
     public User() {
     }
 
     //complete constructor
     public User(Long id, String firstName, String lastName, String username, String email, String password,
-            String phone, LocalDate dob, Boolean is_active, Boolean is_medical, Boolean is_admin, String position,
+            String phone, LocalDate dob, Boolean is_active, UserRole userRole, Boolean is_medical, Boolean is_admin, String position,
             LocalDate hireDate) {
         this.id = id;
         this.firstName = firstName;
@@ -78,6 +90,7 @@ public class User {
         this.phone = phone;
         this.dob = dob;
         this.is_active = is_active;
+        this.userRole = userRole;
         this.is_medical = is_medical;
         this.is_admin = is_admin;
         this.position = position;
@@ -86,7 +99,7 @@ public class User {
 
     //complete constructor with no id variable
     public User(String firstName, String lastName, String username, String email, String password, String phone,
-            LocalDate dob, Boolean is_active, Boolean is_medical, Boolean is_admin, String position,
+            LocalDate dob, Boolean is_active, UserRole userRole, Boolean is_medical, Boolean is_admin, String position,
             LocalDate hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -96,6 +109,7 @@ public class User {
         this.phone = phone;
         this.dob = dob;
         this.is_active = is_active;
+        this.userRole = userRole;
         this.is_medical = is_medical;
         this.is_admin = is_admin;
         this.position = position;
@@ -193,6 +207,16 @@ public class User {
         this.is_active = is_active;
     }
 
+    //Gets the user's role
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    //Sets the user's role
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
+    }
+
     //Gets whether the user is on the medical staff
     public Boolean getIs_medical() {
         return is_medical;
@@ -237,7 +261,38 @@ public class User {
     @Override
     public String toString() {
         return "User [id="+ id +", firstName="+firstName+", lastName=" + lastName + ", username=" + username +", email=" 
-                + email + ", password=" + password + ", phone=" + phone + ", dob=" + dob + ", is_active=" + is_active + 
+                + email + ", password=" + password + ", phone=" + phone + ", dob=" + dob + ", is_active=" + is_active + ", userRole=" + userRole+
                 ", is_medical=" + is_medical + ", is_admin=" + is_admin+ ", position=" + position+ ", hireDate=" + hireDate+"]";
     }
+
+    /*Spring Security Methods
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        return false;
+    }*/
 }
