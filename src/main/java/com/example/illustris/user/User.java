@@ -7,6 +7,7 @@ package com.example.illustris.user;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Collections;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,15 +17,18 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+
 
 //TODO: add all user fields
 @Entity
 @Table(name = "user", schema = "public")
-public class User{
-//public class User implements UserDetails{
-    //private static final long serialVersionUID = 1L;
+//public class User{
+public class User implements UserDetails{
+    private static final long serialVersionUID = 1L;
 
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
@@ -53,17 +57,25 @@ public class User{
     @Column(name = "dob", nullable = false)
     private LocalDate dob;
 
-    @Column(name = "is_active", nullable = false)
-    private Boolean is_active;
+    @Column(name = "isActive", nullable = false)
+    private Boolean isActive;
 
     @Column(name = "userRole", nullable = false)
     private UserRole userRole;
 
-    @Column(name = "is_medical", nullable = false)
-    private Boolean is_medical;
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled;
 
-    @Column(name = "is_admin", nullable = false)
-    private Boolean is_admin;
+    @Column(name = "locked", nullable = false)
+    private Boolean locked;
+
+    //Probably remove later
+    @Column(name = "isMedical", nullable = false)
+    private Boolean isMedical;
+
+    //Probably remove later
+    @Column(name = "isAdmin", nullable = false)
+    private Boolean isAdmin;
 
     @Column(name = "position", nullable = false, length = 30)
     private String position;
@@ -79,7 +91,7 @@ public class User{
 
     //complete constructor
     public User(Long id, String firstName, String lastName, String username, String email, String password,
-            String phone, LocalDate dob, Boolean is_active, UserRole userRole, Boolean is_medical, Boolean is_admin, String position,
+            String phone, LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked, Boolean isMedical, Boolean isAdmin, String position,
             LocalDate hireDate) {
         this.id = id;
         this.firstName = firstName;
@@ -89,17 +101,19 @@ public class User{
         this.password = password;
         this.phone = phone;
         this.dob = dob;
-        this.is_active = is_active;
+        this.isActive = isActive;
         this.userRole = userRole;
-        this.is_medical = is_medical;
-        this.is_admin = is_admin;
+        this.enabled = enabled;
+        this.locked = locked;
+        this.isMedical = isMedical;
+        this.isAdmin = isAdmin;
         this.position = position;
         this.hireDate = hireDate;
     }
 
     //complete constructor with no id variable
     public User(String firstName, String lastName, String username, String email, String password, String phone,
-            LocalDate dob, Boolean is_active, UserRole userRole, Boolean is_medical, Boolean is_admin, String position,
+            LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked, Boolean isMedical, Boolean isAdmin, String position,
             LocalDate hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -108,191 +122,168 @@ public class User{
         this.password = password;
         this.phone = phone;
         this.dob = dob;
-        this.is_active = is_active;
+        this.isActive = isActive;
         this.userRole = userRole;
-        this.is_medical = is_medical;
-        this.is_admin = is_admin;
+        this.enabled = enabled;
+        this.locked = locked;
+        this.isMedical = isMedical;
+        this.isAdmin = isAdmin;
         this.position = position;
         this.hireDate = hireDate;
     }
 
-    //Gets the user's ID number
-    //The code automatically generates a user ID
-    public Long getId() {
-        return id;
+    //*****************Begin Spring Security override methods********//
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
+        return Collections.singletonList(authority);
     }
 
-    //Sets the user's ID number
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    //Gets the user's First name
-    public String getFirstName() {
-        return firstName;
-    }
-
-    //Sets the user's First name
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-     //Gets the user's Last name
-    public String getLastName() {
-        return lastName;
-    }
-
-    //Sets the user's Last name
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    //Gets the user's Username
-    public String getUsername() {
-        return username;
-    }
-
-    //Sets the user's Username
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    //Gets the user's Email address
-    public String getEmail() {
-        return email;
-    }
-
-    //Sets the user's Email address
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    //Gets the user's Password
+    @Override
     public String getPassword() {
         return password;
     }
 
-    //Sets the user's Password
-    public void setPassword(String password) {
-        this.password = password;
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    //Gets the user's phone number
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return !locked;
+    }
+
+    
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
     public String getPhone() {
         return phone;
     }
 
-    //Sets the user's phone number
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    //Gets the user's Date of birth
     public LocalDate getDob() {
         return dob;
     }
 
-    //Sets the user's Date of birth
     public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
-    //Gets whether the user is an active user
-    public Boolean getIs_active() {
-        return is_active;
+    public Boolean getIsActive() {
+        return isActive;
     }
 
-    //Sets whether the user is an active user
-    public void setIs_active(Boolean is_active) {
-        this.is_active = is_active;
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
-    //Gets the user's role
     public UserRole getUserRole() {
         return userRole;
     }
 
-    //Sets the user's role
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }
 
-    //Gets whether the user is on the medical staff
-    public Boolean getIs_medical() {
-        return is_medical;
+
+    public Boolean getIsMedical() {
+        return isMedical;
     }
 
-    //Sets whether the user is on the medical staff
-    public void setIs_medical(Boolean is_medical) {
-        this.is_medical = is_medical;
+    public void setIsMedical(Boolean isMedical) {
+        this.isMedical = isMedical;
     }
 
-    //Gets whether the user is a system administrator
-    public Boolean getIs_admin() {
-        return is_admin;
+    public Boolean getIsAdmin() {
+        return isAdmin;
     }
 
-    //Sets whether the user is a system administrator
-    public void setIs_admin(Boolean is_admin) {
-        this.is_admin = is_admin;
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
-    //Gets the user's Position
     public String getPosition() {
         return position;
     }
 
-    //Sets the user's Position
     public void setPosition(String position) {
         this.position = position;
     }
 
-    //Gets the date the user was hired
     public LocalDate getHireDate() {
         return hireDate;
     }
 
-    //Sets the date the user was hired
     public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
-    }    
+    }
 
     //Overrides the toString() method
     @Override
     public String toString() {
         return "User [id="+ id +", firstName="+firstName+", lastName=" + lastName + ", username=" + username +", email=" 
-                + email + ", password=" + password + ", phone=" + phone + ", dob=" + dob + ", is_active=" + is_active + ", userRole=" + userRole+
-                ", is_medical=" + is_medical + ", is_admin=" + is_admin+ ", position=" + position+ ", hireDate=" + hireDate+"]";
-    }
+            + email + ", password=" + password + ", phone=" + phone + ", dob=" + dob + ", isActive=" + isActive 
+            + ", userRole=" + userRole + ", enabled=" + enabled + ", locked=" + locked+ ", isMedical=" + isMedical 
+            + ", isAdmin=" + isAdmin+ ", position=" + position+ ", hireDate=" + hireDate+"]";
+    }      
 
-    /*Spring Security Methods
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        // TODO Auto-generated method stub
-        return false;
-    }*/
 }

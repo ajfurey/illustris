@@ -13,6 +13,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;

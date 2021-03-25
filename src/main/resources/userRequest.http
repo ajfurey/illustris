@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
     "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"bbagins@MidEarth.com", 
-    "password":"MyPrecious", "phone":"555-555-5555", "dob":"1966-02-25", "is_active":true, 
+    "password":"MyPrecious", "phone":"555-555-5555", "dob":"1966-02-25", "is_active":true, "userRole":"MEDICAL",
     "is_medical":false, "is_admin":false, "position":"Burglar","hireDate":"2021-03-15"
 }
 
