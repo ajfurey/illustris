@@ -48,7 +48,7 @@ public class User implements UserDetails{
     @Column(name = "email", nullable = false, length = 36)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 16)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "phone", nullable = false, length = 12)
@@ -57,25 +57,17 @@ public class User implements UserDetails{
     @Column(name = "dob", nullable = false)
     private LocalDate dob;
 
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "isActive")
     private Boolean isActive;
 
     @Column(name = "userRole", nullable = false)
     private UserRole userRole;
 
-    @Column(name = "enabled", nullable = false)
+    @Column(name = "enabled")
     private Boolean enabled;
 
-    @Column(name = "locked", nullable = false)
+    @Column(name = "locked")
     private Boolean locked;
-
-    //Probably remove later
-    @Column(name = "isMedical", nullable = false)
-    private Boolean isMedical;
-
-    //Probably remove later
-    @Column(name = "isAdmin", nullable = false)
-    private Boolean isAdmin;
 
     @Column(name = "position", nullable = false, length = 30)
     private String position;
@@ -84,15 +76,14 @@ public class User implements UserDetails{
     private LocalDate hireDate;
 
     
-
     //empty constructor
     public User() {
     }
 
     //complete constructor
     public User(Long id, String firstName, String lastName, String username, String email, String password,
-            String phone, LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked, Boolean isMedical, Boolean isAdmin, String position,
-            LocalDate hireDate) {
+            String phone, LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked,
+            String position, LocalDate hireDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -105,15 +96,13 @@ public class User implements UserDetails{
         this.userRole = userRole;
         this.enabled = enabled;
         this.locked = locked;
-        this.isMedical = isMedical;
-        this.isAdmin = isAdmin;
         this.position = position;
         this.hireDate = hireDate;
-    }
+    } 
 
     //complete constructor with no id variable
     public User(String firstName, String lastName, String username, String email, String password, String phone,
-            LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked, Boolean isMedical, Boolean isAdmin, String position,
+            LocalDate dob, Boolean isActive, UserRole userRole, Boolean enabled, Boolean locked, String position,
             LocalDate hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -126,8 +115,20 @@ public class User implements UserDetails{
         this.userRole = userRole;
         this.enabled = enabled;
         this.locked = locked;
-        this.isMedical = isMedical;
-        this.isAdmin = isAdmin;
+        this.position = position;
+        this.hireDate = hireDate;
+    }
+    
+    public User(String firstName, String lastName, String username, String email, String password, String phone,
+            LocalDate dob, UserRole userRole, String position, LocalDate hireDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.dob = dob;
+        this.userRole = userRole;
         this.position = position;
         this.hireDate = hireDate;
     }
@@ -177,7 +178,7 @@ public class User implements UserDetails{
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 
     public void setEnabled(Boolean enabled) {
@@ -252,22 +253,6 @@ public class User implements UserDetails{
     }
 
 
-    public Boolean getIsMedical() {
-        return isMedical;
-    }
-
-    public void setIsMedical(Boolean isMedical) {
-        this.isMedical = isMedical;
-    }
-
-    public Boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -289,8 +274,10 @@ public class User implements UserDetails{
     public String toString() {
         return "User [id="+ id +", firstName="+firstName+", lastName=" + lastName + ", username=" + username +", email=" 
             + email + ", password=" + password + ", phone=" + phone + ", dob=" + dob + ", isActive=" + isActive 
-            + ", userRole=" + userRole + ", enabled=" + enabled + ", locked=" + locked+ ", isMedical=" + isMedical 
-            + ", isAdmin=" + isAdmin+ ", position=" + position+ ", hireDate=" + hireDate+"]";
-    }      
+            + ", userRole=" + userRole + ", enabled=" + enabled + ", locked=" + locked+ ", position=" + position+ ", hireDate=" + hireDate+"]";
+    }
 
+    
+
+     
 }
