@@ -14,17 +14,23 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-4">
-            <h1 class="text-center">Welcome to Illustris</h1>
+            <h1 class="text-center">Illustris</h1>
             <p class="text-center">
                  <!--Thymeleaf Variable usage-->
-                Hey there! <th:block th:text="${message}">message</th:block>
+                <!--Hey there! <th:block th:text="${message}">message</th:block>-->
             </p>
-            <a href="/login">Login</a>
         </div>
-    </div>
-    <div  class="d-grid gap-3">
+        <div class="col-lg-4">
+            <a href="/login">Logout</a>
+            <a href="/login">Appointments</a>
+            <a href="/login">Orders</a>
+            <a href="/login">Users</a>
+            <a href="/login">Patient</a>
+            <a href="/login">Imaging</a>
+        </div>
         
     </div>
+        
 </div>
 </body>
 </html>
