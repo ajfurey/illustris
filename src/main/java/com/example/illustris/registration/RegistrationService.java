@@ -36,16 +36,16 @@ public class RegistrationService {
         }
 
         String token = userService.signUpUser(
-                new User(request.getFirstName(),request.getLastName(),request.getEmail(),
-                        request.getPassword(),request.getUsername(),request.getPhone(),
-                        request.getDob(),UserRole.USER,request.getPosition(),request.getHireDate()
+                new User(request.getFirstName(),request.getLastName(),request.getUsername(),
+                    request.getEmail(),request.getPassword(),request.getPhone(),request.getDob(),
+                    request.getUserRole(),request.getPosition(),request.getHireDate()
                 )
         );
 
         String link = "http://localhost:8080/api/v1/Registration/confirm?token=" + token;
-        emailSender.send(
+        /*emailSender.send(
                 request.getEmail(),
-                buildEmail(request.getFirstName(), link));
+                buildEmail(request.getFirstName(), link));*/
 
         return token;
     }
@@ -73,7 +73,7 @@ public class RegistrationService {
         return "confirmed";
     }
 
-    private String buildEmail(String name, String link) {
+    /*private String buildEmail(String name, String link) {
         return 
         "<!DOCTYPE HTML>\n"+
         "<head>\n"+
@@ -85,7 +85,7 @@ public class RegistrationService {
            "<p>Here's the link  "+link+"</p>\n"+
         "</body>\n"+
         "</html>";
-    }
+    }*/
 
 
 }

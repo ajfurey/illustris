@@ -23,13 +23,13 @@ public interface UserRepository extends JpaRepository<User, Long>{
     @Query("SELECT s FROM User s WHERE s.email = ?1")//User is class not db
     Optional<User> findUserByEmail(String email);
 
-   Optional<User> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
     @Transactional
     @Modifying
-    @Query("UPDATE User a " +
-            "SET a.enabled = TRUE WHERE a.email = ?1")
+    @Query("UPDATE User a " + "SET a.enabled = TRUE WHERE a.email = ?1")
     
+
     int enableUser(String email);
 
 }

@@ -12,7 +12,7 @@ public class indexController {
 
         // add `message` attribute
         model.addAttribute("message", "Thank you for visiting.");
-
+        
         // return view name
         return "index";
     }

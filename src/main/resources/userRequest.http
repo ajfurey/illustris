@@ -18,7 +18,7 @@ POST http://localhost:8080/api/v1/Registration
 Content-Type: application/json
 
 {
-    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"youremail", 
+    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"ajfurey@gmail.com", 
     "password":"MyPrecious","phone":"555-555-5555", "dob":"1966-02-25", "userRole":"MEDICAL", "position":"Burglar", 
     "hireDate":"2021-03-15"
 }

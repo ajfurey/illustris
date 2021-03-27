@@ -11,6 +11,8 @@ import java.util.Collections;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,7 +50,7 @@ public class User implements UserDetails{
     @Column(name = "email", nullable = false, length = 36)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false    )
     private String password;
 
     @Column(name = "phone", nullable = false, length = 12)
@@ -60,6 +62,7 @@ public class User implements UserDetails{
     @Column(name = "isActive")
     private Boolean isActive;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "userRole", nullable = false)
     private UserRole userRole;
 
@@ -136,6 +139,7 @@ public class User implements UserDetails{
     //*****************Begin Spring Security override methods********//
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(userRole.name());
         return Collections.singletonList(authority);
     }
