@@ -26,8 +26,12 @@ public class UserConfig {
             User Hannah = new User("Hannah", "Smith", "hsmith04","yeahnah@gmail.com", "password", "111-111-1111",
             LocalDate.of(1993, Month.JANUARY, 1), true, UserRole.MEDICAL, true, false, "Technician", 
             LocalDate.of(2015, Month.JUNE, 15));
+
+            User John = new User("John", "Terry", "jterry02","jmoney@bingo.com", "pass01", "222-222-2222",
+            LocalDate.of(1985, Month.FEBUARY, 7), true, UserRole.USER, true, false, "Reception", 
+            LocalDate.of(2015, Month.JUNE, 15));
             
-            repository.saveAll(List.of(Nick, Hannah));
+            repository.saveAll(List.of(Nick, Hannah, John));
         };
     }
 }/**/
