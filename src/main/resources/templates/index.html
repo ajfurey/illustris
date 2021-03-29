@@ -11,34 +11,19 @@
 
 </head>
 <body>
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-4">
-            <h1 class="text-center">Welcome to Illustris</h1>
-            <p class="text-center">
-                 <!--Thymeleaf Variable usage-->
-                Hey there! <th:block th:text="${message}">message</th:block>
-            </p>
-            <a href="/login">Login</a>
-        </div>
-    </div>
-    <div  class="d-grid gap-3">
-    <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <input type="email" class="form-control" placeholder="Email" aria-label="Email">
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-            <input type="password" class="form-control" placeholder="Password" aria-label="Password">
-          </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4 d-grid gap-2">
-            <button type="button" class="btn btn-primary">Login</button>
-          </div>
-      </div>
-    </div>
-</div>
+  <div class="container mt-5">
+		<div class="row justify-content-center">
+		  <div class="col-lg-4 d-grid gap-3">
+				<h1 class="text-center">Welcome to Illustris</h1>
+				<img src="logo_test.svg" alt="" height="200px" class="mx-auto d-block"/>
+			  	<div><h5 class="text-center">A Radiology Information System</h5></div>
+		</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-4 d-grid">
+				<button onclick="window.location.href='/login';" type="button" class="btn btn-primary m-2">Login</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
