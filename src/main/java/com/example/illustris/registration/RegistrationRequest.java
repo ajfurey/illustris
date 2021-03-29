@@ -1,11 +1,10 @@
 package com.example.illustris.registration;
 
-import java.time.LocalDate;
-
-import com.example.illustris.user.UserRole;
+//import java.time.LocalDate;
+//import com.example.illustris.user.UserRole;
 
 public class RegistrationRequest {
-    private final String firstName;
+    /*private final String firstName;
     private final String lastName;
     private final String username;
     private final String email;
@@ -151,7 +150,7 @@ public class RegistrationRequest {
         return "RegistrationRequest [dob=" + dob + ", email=" + email + ", firstName=" + firstName + ", hireDate="
                 + hireDate + ", lastName=" + lastName + ", password=" + password + ", phone=" + phone + ", position="
                 + position + ", userRole=" + userRole + ", username=" + username + "]";
-    }
+    }*/
 
     
    

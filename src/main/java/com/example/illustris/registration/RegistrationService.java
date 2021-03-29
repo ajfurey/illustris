@@ -1,7 +1,7 @@
 package com.example.illustris.registration;
 
 import org.springframework.stereotype.Service;
-import com.example.illustris.user.User;
+/*mport com.example.illustris.user.User;
 import com.example.illustris.user.UserService;
 import com.example.illustris.user.UserRole;
 import com.example.illustris.email.EmailSender;
@@ -9,12 +9,12 @@ import com.example.illustris.registration.token.ConfirmationToken;
 import com.example.illustris.registration.token.ConfirmationTokenService;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime;*/
 
 @Service
 public class RegistrationService {
     
-    private final UserService userService;
+    /*private final UserService userService;
     private final EmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
@@ -47,10 +47,10 @@ public class RegistrationService {
                 request.getEmail(),
                 buildEmail(request.getFirstName(), link));*/
 
-        return token;
-    }
+        //return token;
+    //}
 
-    @Transactional
+    /*@Transactional
     public String confirmToken(String token) {
         ConfirmationToken confirmationToken = confirmationTokenService
                 .getToken(token)
