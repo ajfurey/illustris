@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/Order")
+@RequestMapping(path = "order")
 public class OrderController {
     private final OrderService orderService;
 

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/Patient")
+@RequestMapping(path = "/patient")
 public class PatientController {
     private final PatientService patientService;
 
