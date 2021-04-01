@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Illustris RIS Web Application</title>
+    
+    <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--Bundle includes Popper.js-->
+    <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <h1 class="text-center">Illustris</h1>
+            <p class="text-center">
+                 <!--Thymeleaf Variable usage-->
+                <!--Hey there! <th:block th:text="${message}">message</th:block>-->
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <a href="/login">Logout</a>
+            <a href="/login">Appointments</a>
+            <a href="/login">Orders</a>
+            <a href="/login">Users</a>
+            <a href="/login">Patient</a>
+            <a href="/login">Imaging</a>
+        </div>
+        
+    </div>
+        
+</div>
+</body>
+</html>
