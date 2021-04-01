@@ -16,8 +16,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 
 //this is a redundent class to be used as an example
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class WebSecurityConfig{
 /*public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     
