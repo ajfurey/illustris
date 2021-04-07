@@ -1,17 +1,18 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <title>Untitled Document</title>
 <!--JQuery-->
-<script src="webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
 <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
 <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <!--Bundle includes Popper.js-->
 <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 <script src="/js/addUserForm.js"></script>
 <!--font awsone icons-->
 <link rel="stylesheet" href="css/all.min.css">
@@ -27,7 +28,7 @@
     <div class="main-menu">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="/main">
                 <img src="/images/logo.svg" alt="" width="40" class="d-inline-block align-middle">
                Illustris
               </a>
@@ -75,58 +76,59 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-4 d-grid gap-3 mt-5">
-            <form action="#" method="post">
-                <div class="form-group">
+            <div id="output">hi</div>
+            <form>
+                <!--<div class="form-group">-->
                     <label for="firstName">First Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter First Name" id="firstName">
-                </div>
+                    <input type="text" class="form-control" placeholder="Enter First Name" name="firstName" id="firstName" >
+                <!--</div>-->
                 <div class="form-group">
                     <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter Last Name" id="lastName">
+                    <input type="text" class="form-control" placeholder="Enter Last Name" name="lastName" id="lastName">
                 </div>
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input type="text" class="form-control" placeholder="Enter Username" id="username">
+                    <input type="text" class="form-control" placeholder="Enter Username" name="username" id="username">
                 </div>
                 <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" placeholder="Enter email" id="email">
+                <input type="email" class="form-control" placeholder="Enter email" name="email" id="email">
                 </div>
                 <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" placeholder="Enter password" name="password" id="password">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone #:</label>
-                    <input type="text" class="form-control" placeholder="Enter Phone #" id="phone">
+                    <input type="text" class="form-control" placeholder="Enter Phone #" name="phone" id="phone">
                 </div>
                 <div class="form-group">
                     <label for="address">Address:</label>
-                    <input type="text" class="form-control" placeholder="Enter Address" id="address">
+                    <input type="text" class="form-control" placeholder="Enter Address" name="address" id="address">
                 </div>
                 <div class="form-group">
                     <label for="title">Job Title:</label>
-                    <input type="text" class="form-control" placeholder="Enter Job Title" id="title">
+                    <input type="text" class="form-control" placeholder="Enter Job Title" name="title" id="title">
                 </div>
                 <div class="form-group">
                     <label for="hireDate">Hire Date:</label>
-                    <input type="text" class="form-control" placeholder="Enter Hire Date" id="hireDate">
+                    <input type="text" class="form-control" placeholder="Enter Hire Date" name="hireDate" id="hireDate">
                 </div>
                 <div class="form-group">
                     <label for="enabled">Enabled:</label>
-                    <input type="text" class="form-control" placeholder="Is Enabled" id="enabled">
+                    <input type="text" class="form-control" placeholder="Is Enabled" name="enabled" id="enabled">
                 </div>
                 <div class="form-group">
                     <label for="locked">Locked:</label>
-                    <input type="text" class="form-control" placeholder="Is Locked" id="locked">
+                    <input type="text" class="form-control" placeholder="Is Locked" name="locked" id="locked">
                 </div>
                 <div class="form-group">
                     <label for="userRole">User Role:</label>
-                    <input type="text" class="form-control" placeholder="User Role" id="userRole">
+                    <input type="text" class="form-control" placeholder="User Role" name="userRole" id="userRole">
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

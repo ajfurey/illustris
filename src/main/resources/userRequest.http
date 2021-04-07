@@ -9,8 +9,8 @@ Content-Type: application/json
 
 {
     "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"bbagins@MidEarth.com", 
-    "password":"MyPrecious", "phone":"555-555-5555", "dob":"1966-02-25", "isActive":true, "userRole":"MEDICAL", 
-    "enabled": true, "locked":false, "position":"Burglar","hireDate":"2021-03-15"
+    "password":"MyPrecious", "phone":"555-555-5555","address":"The Shire","title":"Radiologist", "isActive":true, 
+    "hireDate":"2021-03-15","enabled": true, "locked":false, "userRole":"ROLE_MEDICAL"
 }
 
 ###

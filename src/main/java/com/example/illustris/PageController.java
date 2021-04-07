@@ -39,8 +39,8 @@ public class PageController {
         return "order";
     }
 
-    @GetMapping("/user/addUser")
-    public String add(Model model) {
+    @GetMapping("user/addUser")
+    public String add() {
         // add `message` attribute
         return "addUser";
     }
