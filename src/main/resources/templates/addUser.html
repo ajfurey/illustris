@@ -5,11 +5,14 @@
 
 
 <title>Untitled Document</title>
+<!--JQuery-->
+<script src="webjars/jquery/jquery.min.js"></script>
 <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
 <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <!--Bundle includes Popper.js-->
 <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="/js/addUserForm.js"></script>
 <!--font awsone icons-->
 <link rel="stylesheet" href="css/all.min.css">
 <link rel="stylesheet" href="css/reset.css">
@@ -72,7 +75,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-4 d-grid gap-3 mt-5">
-            <form action="/user" method="post">
+            <form action="#" method="post">
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" placeholder="Enter First Name" id="firstName">
@@ -107,7 +110,7 @@
                 </div>
                 <div class="form-group">
                     <label for="hireDate">Hire Date:</label>
-                    <input type="text" class="form-control" placeholder="Enter Hire Date" id="hir">
+                    <input type="text" class="form-control" placeholder="Enter Hire Date" id="hireDate">
                 </div>
                 <div class="form-group">
                     <label for="enabled">Enabled:</label>
