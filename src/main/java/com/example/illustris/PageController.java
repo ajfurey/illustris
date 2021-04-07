@@ -1,11 +1,17 @@
 package com.example.illustris;
 
+
+
+import com.example.illustris.user.User;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PageController {
+    
+    
     //adds template as an index
     @GetMapping("/main")
     public String mainPage(Model model) {
@@ -22,6 +28,21 @@ public class PageController {
         
         // return view name
         return "admin";
+    }
+
+    
+
+    @GetMapping("medical/order")
+    public String orderPage() {
+        
+        // return view name
+        return "order";
+    }
+
+    @GetMapping("/user/addUser")
+    public String add(Model model) {
+        // add `message` attribute
+        return "addUser";
     }
 
 }

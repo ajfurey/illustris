@@ -3,6 +3,7 @@ package com.example.illustris.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
 
 @RestController
 @RequestMapping(path = "/user")
@@ -30,14 +34,21 @@ public class UserController {
     
     /*@GetMapping("/")
     public String home() {
-        return ("<h1>Welcome</h1>");
+        return "("<h1>Welcome</h1>")";
     }*/
 
     /*@GetMapping("/user")
     public String user() {
         return ("<h1>Welcome User</h1>");
+    }
+
+    @GetMapping("/user/addUser")
+    public String sendForm() {
+
+        return "addUser";
     }*/
-    @PostMapping
+
+    @PostMapping()
     public void registerNewUser(@RequestBody User user){
         userService.addNewUser(user);
     }
@@ -55,6 +66,7 @@ public class UserController {
     ){
         userService.uadateUser(userId, lastName, email);
     }
+    
 
     @GetMapping("/admin")
     public String admin() {
@@ -62,5 +74,4 @@ public class UserController {
     }
 
     
-
 }

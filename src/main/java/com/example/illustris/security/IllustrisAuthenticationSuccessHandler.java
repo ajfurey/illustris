@@ -54,6 +54,7 @@ public class IllustrisAuthenticationSuccessHandler implements AuthenticationSucc
     private String determineTargetUrl(Authentication authentication) {
         Map<String, String> roleTargetUrlMap = new HashMap<>();
         roleTargetUrlMap.put("ROLE_USER", "/main");
+        roleTargetUrlMap.put("ROLE_MEDICAL", "/main");
         roleTargetUrlMap.put("ROLE_ADMIN", "/admin");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();

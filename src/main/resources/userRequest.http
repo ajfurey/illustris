@@ -4,7 +4,7 @@
 //@FileName: userRequest.http
 
 ###
-POST http://localhost:8080/api/v1/User
+POST http://localhost:8080/user
 Content-Type: application/json
 
 {
@@ -41,8 +41,8 @@ Content-Type: application/json
     "hireDate":"2021-03-15"
 }
 ###
-DELETE  http://localhost:8080/api/v1/User/3
+DELETE  http://localhost:8080/user/3
 
 ###
-PUT   http://localhost:8080/api/v1/User/1?name=Nick&email=nfury@shield.com
+PUT   http://localhost:8080/user/1?name=Nick&email=nfury@shield.com
 Content-Type: application/json
