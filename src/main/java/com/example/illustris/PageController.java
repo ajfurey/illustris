@@ -1,8 +1,9 @@
 package com.example.illustris;
 
 
+import com.example.illustris.user.Title;
 
-import com.example.illustris.user.User;
+import com.example.illustris.user.UserRole;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +41,11 @@ public class PageController {
     }
 
     @GetMapping("user/addUser")
-    public String add() {
-        // add `message` attribute
+    public String add(Model model) {
+        Title titles[]= Title.values();
+        UserRole roles[]= UserRole.values();
+        model.addAttribute("jobTitle", titles);
+        model.addAttribute("userRole", roles);
         return "addUser";
     }
 

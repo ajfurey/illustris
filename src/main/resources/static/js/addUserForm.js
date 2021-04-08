@@ -12,11 +12,10 @@ $(document).ready(function(){
         var address=$("#address").val();
         var title=$("#title").val();
         var hireDate=$("#hireDate").val();
-        var enabled=$("#enabled").val();
-        var locked=$("#locked").val();
+        var enabled=true;
+        var locked=false;
         var userRole=$("#userRole").val();
-        
-        
+        userRole="ROLE_".concat(userRole.toUpperCase());
         
         var data={
             "firstName":firstName,
@@ -32,11 +31,13 @@ $(document).ready(function(){
             "locked":locked,
             "userRole":userRole
         };
-        //alert("hi" +lastName)
-        //var data = $("form").serializeArray();
-        console.log( data );
+        /*var formData = $("form").serializeArray();
+        data=[];
         event.preventDefault();
-        //alert("hi" +data)
+        $.each(formData, function(i, field) {
+            data.push(field.name +":"+ field.value);
+        });*/
+        console.log(data);
         $.ajax({
             type : "POST",
             url : "/user",

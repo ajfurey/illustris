@@ -1,5 +1,6 @@
 package com.example.illustris.security;
 
+import com.example.illustris.user.UserRole;
 import com.example.illustris.user.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        String Admin=UserRole.Admin.roleUpCase();
+        String Medical=UserRole.Medical.roleUpCase();
+        String User=UserRole.User.roleUpCase();
         http.csrf().disable().authorizeRequests()
-                //.antMatchers("/admin/").hasRole("ADMIN")
-                //.antMatchers("/user/**").hasAnyRole("ADMIN", "USER", "MEDICAL")
-                //.antMatchers("/medical").hasAnyRole("ADMIN", "MEDICAL")
-                //.antMatchers("/").permitAll()
+                .antMatchers("/admin/").hasRole(Admin)
+                .antMatchers("/user/**").hasAnyRole(Admin, User, Medical)
+                .antMatchers("/medical").hasAnyRole(Admin, Medical)
+                .antMatchers("/").permitAll()
                 .and().formLogin()
                 .successHandler(authenticationSuccessHandler())
                 .and().logout().permitAll();
