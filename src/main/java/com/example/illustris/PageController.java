@@ -26,27 +26,33 @@ public class PageController {
 
     @GetMapping("/admin")
     public String adminPage() {
-        
         // return view name
         return "admin";
     }
 
     
 
-    @GetMapping("medical/order")
+    @GetMapping("medical/newOrder")
     public String orderPage() {
         
         // return view name
-        return "order";
+        return "newOrder";
     }
 
-    @GetMapping("user/addUser")
-    public String add(Model model) {
+    @GetMapping("medical/newPatient")
+    public String newPatientPage() {
+        
+        // return view name
+        return "newPatient";
+    }
+
+    @GetMapping("user/newUser")
+    public String newUserPage(Model model) {
         Title titles[]= Title.values();
         UserRole roles[]= UserRole.values();
         model.addAttribute("jobTitle", titles);
         model.addAttribute("userRole", roles);
-        return "addUser";
+        return "newUser";
     }
 
 }

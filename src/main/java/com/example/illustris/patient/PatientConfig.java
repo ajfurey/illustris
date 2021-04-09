@@ -18,7 +18,7 @@ public class PatientConfig {
     @Bean
     CommandLineRunner patientCommandLineRunner(PatientRepository repository){
         return args -> {
-            Patient Frodo= new Patient("Frodo", "Bagins", "Took","fbagins@MidEarth.com", "555-555-5555", 
+            Patient Frodo= new Patient("Frodo", "Bagins", "T","fbagins@MidEarth.com", "555-555-5555", 
             LocalDate.of(1970, Month.APRIL, 15), false, false, false, false, "Peviously injured by cursed sword");
 
         

@@ -57,6 +57,7 @@ public class User {
     @Column(name = "locked")
     private Boolean locked;
 
+    
     @Column(name = "userRole", nullable = false)
     private String userRole;
     

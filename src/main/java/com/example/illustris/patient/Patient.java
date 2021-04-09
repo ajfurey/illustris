@@ -31,8 +31,8 @@ public class Patient {
     @Column(name = "lastName", nullable = false, length = 30)
     private String lastName;
 
-    @Column(name = "middleName", nullable = true, length = 30)
-    private String middleName;
+    @Column(name = "mInit", nullable = true, length = 1)
+    private String mInit;
 
     @Column(name = "email", nullable = true, length = 36)
     private String email;
@@ -40,8 +40,8 @@ public class Patient {
     @Column(name = "phone", nullable = false, length = 12)
     private String phone;
 
-    @Column(name = "dob", nullable = false)
-    private LocalDate dob;
+    @Column(name = "birthDate", nullable = false)
+    private LocalDate birthDate;
 
     @Column(name = "allergy_asthma", nullable = false)
     private Boolean allergy_asthma;
@@ -61,16 +61,16 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(Long id, String firstName, String lastName, String middleName, String email, String phone,
-            LocalDate dob, Boolean allergy_asthma, Boolean allergy_ltx, Boolean allergy_mriDye, Boolean allergy_xrayDye,
+    public Patient(Long id, String firstName, String lastName, String mInit, String email, String phone,
+            LocalDate birthDate, Boolean allergy_asthma, Boolean allergy_ltx, Boolean allergy_mriDye, Boolean allergy_xrayDye,
             String notes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.middleName = middleName;
+        this.mInit = mInit;
         this.email = email;
         this.phone = phone;
-        this.dob = dob;
+        this.birthDate = birthDate;
         this.allergy_asthma = allergy_asthma;
         this.allergy_ltx = allergy_ltx;
         this.allergy_mriDye = allergy_mriDye;
@@ -78,15 +78,15 @@ public class Patient {
         this.notes = notes;
     }
 
-    public Patient(String firstName, String lastName, String middleName, String email, String phone, LocalDate dob,
+    public Patient(String firstName, String lastName, String mInit, String email, String phone, LocalDate birthDate,
             Boolean allergy_asthma, Boolean allergy_ltx, Boolean allergy_mriDye, Boolean allergy_xrayDye,
             String notes) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.middleName = middleName;
+        this.mInit = mInit;
         this.email = email;
         this.phone = phone;
-        this.dob = dob;
+        this.birthDate = birthDate;
         this.allergy_asthma = allergy_asthma;
         this.allergy_ltx = allergy_ltx;
         this.allergy_mriDye = allergy_mriDye;
@@ -118,12 +118,12 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public String getMiddleName() {
-        return middleName;
+    public String getMInit() {
+        return mInit;
     }
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
+    public void setMInit(String mInit) {
+        this.mInit = mInit;
     }
 
     public String getEmail() {
@@ -142,12 +142,12 @@ public class Patient {
         this.phone = phone;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public Boolean getAllergy_asthma() {
@@ -193,8 +193,8 @@ public class Patient {
     @Override
     public String toString() {
         return "Patient [allergy_asthma=" + allergy_asthma + ", allergy_ltx=" + allergy_ltx + ", allergy_mriDye="
-                + allergy_mriDye + ", allergy_xrayDye=" + allergy_xrayDye + ", dob=" + dob + ", email=" + email
-                + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + ", middleName=" + middleName
+                + allergy_mriDye + ", allergy_xrayDye=" + allergy_xrayDye + ", birthDate=" +birthDate + ", email=" + email
+                + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName + ", mInit=" + mInit
                 + ", notes=" + notes + ", phone=" + phone + "]";
     }
 

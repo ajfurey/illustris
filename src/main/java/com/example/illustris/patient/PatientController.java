@@ -5,6 +5,7 @@
 
 package com.example.illustris.patient;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,8 @@ public class PatientController {
     public void uadatePatient(
         @PathVariable("patientId") Long patientId,
         @RequestParam(required = false) String lastName,
-        @RequestParam(required = false) String email
+        @RequestParam(required = false) LocalDate DOB
     ){
-        patientService.uadatePatient(patientId, lastName, email);
+        patientService.uadatePatient(patientId, lastName, DOB);
     }
 }

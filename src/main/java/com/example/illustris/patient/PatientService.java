@@ -5,6 +5,7 @@
 
 package com.example.illustris.patient;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -26,10 +27,10 @@ public class PatientService {
     }
 
     public void addNewPatient(Patient patient) {
-        Optional<Patient> userOptional = patientRepository.
-        findPatientByEmail(patient.getEmail());
-		if (userOptional.isPresent()) {
-			throw new IllegalStateException("email taken");//TODO: use an error message
+        Optional<Patient> patientOptional = patientRepository.
+        findPatientByBirthDate(patient.getBirthDate());
+		if (patientOptional.isPresent()) {
+			throw new IllegalStateException("This Patient Exists");//TODO: use an error message
 		}
 		patientRepository.save(patient);
     }
@@ -42,7 +43,7 @@ public class PatientService {
 		patientRepository.deleteById(patientId);
     }
 
-    public void uadatePatient(Long patientId, String lastName, String email) {
+    public void uadatePatient(Long patientId, String lastName, LocalDate birthDate) {
         Patient patient = patientRepository.findById(patientId)
 		.orElseThrow(() ->new IllegalStateException(
 			"user with id "+ patientId + " does not exist"));//TODO: use an error message
@@ -51,14 +52,14 @@ public class PatientService {
 		!Objects.equals(patient.getLastName(), lastName)) {
 			patient.setLastName(lastName);
 		}
-		if (email != null && email.length() >0 && 
-		!Objects.equals(patient.getEmail(), email)) {
-			Optional<Patient> studentOptional = patientRepository
-			.findPatientByEmail(email);
-			if (studentOptional.isPresent()) {
+		if (birthDate != null && 
+		!Objects.equals(patient.getBirthDate(), birthDate)) {
+			Optional<Patient> patientOptional = patientRepository
+			.findPatientByBirthDate(birthDate);
+			if (patientOptional.isPresent()) {
 				throw new IllegalStateException("email taken");//TODO: use an error message
 			}
-			patient.setEmail(email);
+			patient.setBirthDate(birthDate);
 		}
     }
 }
