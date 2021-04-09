@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,6 +40,10 @@ public class Order {
     @Column(name = "imagingNeeded", columnDefinition = "TEXT", nullable = false, length = 350)
     private String imagingNeeded;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "modality", nullable = false)
+    private Modality modality;
+
     @Column(name = "report", columnDefinition = "TEXT", nullable = true, length = 750)
     private String report;
 
@@ -45,21 +51,23 @@ public class Order {
     }
 
     public Order(Long id, LocalDateTime dateCreated, LocalDateTime dateEdited, String visitReason, String imagingNeeded,
-            String report) {
+        Modality modality, String report) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
         this.visitReason = visitReason;
         this.imagingNeeded = imagingNeeded;
+        this.modality=modality;
         this.report = report;
     }
 
     public Order(LocalDateTime dateCreated, LocalDateTime dateEdited, String visitReason, String imagingNeeded,
-            String report) {
+        Modality modality, String report) {
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
         this.visitReason = visitReason;
         this.imagingNeeded = imagingNeeded;
+        this.modality=modality;
         this.report = report;
     }
 
@@ -103,6 +111,14 @@ public class Order {
         this.imagingNeeded = imagingNeeded;
     }
 
+    public Modality getModality() {
+        return modality;
+    }
+
+    public void setModality(Modality modality) {
+        this.modality = modality;
+    }
+    
     public String getReport() {
         return report;
     }
@@ -120,9 +136,9 @@ public class Order {
 
 
         return "Order [dateCreated=" + dateCreatedFormat + ", dateEdited=" + dateEditedFormat + ", id=" + id + ", imagingNeeded="
-                + imagingNeeded + ", report=" + report + ", visitReason=" + visitReason + "]";
+                + imagingNeeded + ", modality="+ modality +", report=" + report + ", visitReason=" + visitReason + "]";
     }
 
-    
+  
 
 }
