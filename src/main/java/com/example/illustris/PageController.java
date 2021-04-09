@@ -1,6 +1,7 @@
 package com.example.illustris;
 
 
+import com.example.illustris.patient.Allergy;
 import com.example.illustris.user.Title;
 
 import com.example.illustris.user.UserRole;
@@ -40,8 +41,9 @@ public class PageController {
     }
 
     @GetMapping("medical/newPatient")
-    public String newPatientPage() {
-        
+    public String newPatientPage(Model model) {
+        Allergy allergies[]= Allergy.values();
+        model.addAttribute("allergy", allergies);
         // return view name
         return "newPatient";
     }

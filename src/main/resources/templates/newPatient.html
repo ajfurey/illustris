@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html  html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,8 @@
 <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <!--Bundle includes Popper.js-->
 <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/js/newPatientForm.js"></script>
 </head>
 <body>
 <!--=================Start Header Area====================-->
@@ -75,35 +77,42 @@
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" placeholder="First Name" name="firstName" id="firstName" >
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="lastName">Last Name:</label>
                     <input type="text" class="form-control" placeholder="Last Name" name="lastName" id="lastName">
                 </div>
-                <div class="form-group col-md-1">
+                <div class="form-group col-md-2">
                     <label for="mInit">MI</label>
-                    <input type="text" class="form-control" placeholder="MI" name="mInit" id="mInit" maxlength="1">
+                    <input type="text" class="form-control" placeholder="M" name="mInit" id="mInit" maxlength="2">
                 </div>
-                <div class="form-group">
-                    <label for="DOB">Date of Birth</label>
-                    <input type="date"  class="form-control" name="DOB" placeholder="YYYY-MM-DD Date of Birth" id="DOB" required>
-                </div>
+                
                 <div class="form-group col-md-6">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number:</label>
                     <input type="text"  class="form-control" name="phone" placeholder="Phone Number" id="phone" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="e-mail">Email</label>
-                    <input type="email"  class="form-control" name="email" placeholder="Email Address" id="e-mail" required> 
+                    <label for="email">Email:</label>
+                    <input type="email"  class="form-control" name="email" placeholder="Email Address" id="email" required> 
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="birthDate">Date of Birth:</label>
+                    <input type="date"  class="form-control" name="birthDate" placeholder="YYYY-MM-DD Date of Birth" id="birthDate" required>
                 </div>
                 <div class="form-group">
-                    <label for="allergies">Allergies</label>
-                    <input type="text"  class="form-control" name="notes" placeholder="Allergies List" id="allergies" required>
+                    <label for="allergy">Allergies:</label>
+                    <select class="form-control" id="allergy" name="allergy" multiple>
+                      <option th:each="a : ${allergy}"
+                              th:value="${a}"
+                              th:text="${a}">
+                      </option>
+                  </select>
                 </div>
                 <div class="form-group">
                     <label for="notes">Notes</label>
-                    <textarea  class="form-control" name="notes" placeholder="Notes/ History" id="notes" required rows="5" maxlength="750"></textarea>
+                    <textarea  class="form-control" name="notes" placeholder="Notes/ History" id="notes" required rows="5" maxlength="512"></textarea>
                 </div>
-				<input type="submit" class="btn btn-primary " value="Register">
+				<input type="submit" class="btn btn-primary " value="Register" id="submit">
+            </form>
         </div>
     </div>
 </div>

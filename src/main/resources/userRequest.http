@@ -14,32 +14,25 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/v1/Registration
+POST http://localhost:8080/registration
 Content-Type: application/json
 
 {
-    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"ajfurey@gmail.com", 
+    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"bbagins@MidEarth.com", 
     "password":"MyPrecious","phone":"555-555-5555", "dob":"1966-02-25", "userRole":"MEDICAL", "position":"Burglar", 
     "hireDate":"2021-03-15"
 }
+
 ###
-POST http://localhost:8080/api/v1/Registration
+POST http://localhost:8080/patient
 Content-Type: application/json
 
 {
-    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"ajfurey@gmail.com", 
-    "password":"MyPrecious","phone":"555-555-5555", "dob":"1966-02-25", "userRole":"MEDICAL", "position":"Burglar", 
-    "hireDate":"2021-03-15"
+    "firstName":"Steve", "lastName":"Rogers", "email":"cap@avengers.gov", "phone":"123-555-4567", 
+    "birthDate":"1918-07-04", "allergy_asthma":false,"allergy_ltx":false,"allergy_mriDye":false,
+    "allergy_xrayDye":false, "notes":"Given a dose of an experimental super soldier serum in the 1940's"
 }
-###
-POST http://localhost:8080/api/v1/Registration
-Content-Type: application/json
 
-{
-    "firstName":"Bilbo", "lastName":"Bagins", "username":"bbagins.underhill", "email":"ajfurey@gmail.com", 
-    "password":"MyPrecious","phone":"555-555-5555", "dob":"1966-02-25", "userRole":"MEDICAL", "position":"Burglar", 
-    "hireDate":"2021-03-15"
-}
 ###
 DELETE  http://localhost:8080/user/3
 

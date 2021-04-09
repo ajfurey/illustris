@@ -55,7 +55,7 @@ public class Patient {
     @Column(name = "allergy_xrayDye", nullable = false)
     private Boolean allergy_xrayDye;
 
-    @Column(name = "notes", columnDefinition = "TEXT", nullable = true, length = 750)
+    @Column(name = "notes", columnDefinition = "TEXT", nullable = true, length = 512)
     private String notes;
     
     public Patient() {
