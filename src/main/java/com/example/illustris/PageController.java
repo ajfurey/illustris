@@ -1,6 +1,7 @@
 package com.example.illustris;
 
 
+import com.example.illustris.order.Modality;
 import com.example.illustris.patient.Allergy;
 import com.example.illustris.user.Title;
 
@@ -34,8 +35,9 @@ public class PageController {
     
 
     @GetMapping("medical/newOrder")
-    public String orderPage() {
-        
+    public String orderPage(Model model) {
+        Modality modalities[]= Modality.values();
+        model.addAttribute("modality", modalities);
         // return view name
         return "newOrder";
     }
@@ -48,7 +50,7 @@ public class PageController {
         return "newPatient";
     }
 
-    @GetMapping("user/newUser")
+    @GetMapping("admin/newUser")
     public String newUserPage(Model model) {
         Title titles[]= Title.values();
         UserRole roles[]= UserRole.values();
@@ -57,4 +59,8 @@ public class PageController {
         return "newUser";
     }
 
+    @GetMapping("user/appts")
+    public String apptsPage() {
+        return "appts";
+    }
 }

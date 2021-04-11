@@ -39,7 +39,7 @@
                     <a class="nav-link"aria-current="page" href="/medical/newOrder">Order</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page"href="#"> Appointments</a>
+                    <a class="nav-link" aria-current="page"href="user/appts"> Appointments</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page"href="#">Image Upload</a>
@@ -74,37 +74,30 @@
     <div class="row justify-content-center">
         <div  class="col-lg-4 d-grid mt-2">
             <form class="row g-3">
-		
-		<div class="row">
-     	 		<div class="col-xs-4">
-       		 	<h3>Search patient by birthdate</h3>
-                	<input type="date"  class="form-control" name="birthDate" placeholder="YYYY-MM-DD Date of Birth" id="birthDate" required>
-        		<select id="birthDate"  name="birthDate" class="selectpicker with-ajax" multiple data-live-search="true">
-            		</select>
-      			</div>
-   		 </div>
- 	 </div><br>
-		
-                <div class="form-group col-md-5">
-                    <label for="visitReason">Visit Reason:</label>
-                    <input type="text" class="form-control" placeholder=" " name="visitReason" id="visitReason" >
-                </div>
+              
+              <h3>Search patient by birthdate</h3>
+              <input type="date"  class="form-control" name="birthDate" placeholder="YYYY-MM-DD Date of Birth" id="birthDate" required>
+              <select id="birthDate"  name="birthDate" class="selectpicker with-ajax" multiple data-live-search="true">
+              </select>
+              <div class="form-group col-md-5">
+                  <label for="visitReason">Visit Reason:</label>
+                  <input type="text" class="form-control" placeholder=" " name="visitReason" id="visitReason" >
+              </div>
+              <div class="form-group col-md-5">
+                  <label for="imagingNeeded">Imaging Needed:</label>
+                  <input type="text" class="form-control" placeholder=" " name="imagingNeeded" id="imagingNeeded">
+              </div>
 
-                <div class="form-group col-md-5">
-                    <label for="imagingNeeded">Imaging Needed:</label>
-                    <input type="text" class="form-control" placeholder=" " name="imagingNeeded" id="imagingNeeded">
-                </div>
-
-                <div class="form-group">
-                    <label for="modality">Modality Type (Scan):</label>
-                    <select class="form-control" id="modality" name="modality"  multiple>
-                      <option th:each="a : ${modality}"
-                              th:value="${a}"
-                              th:text="${a}">
-                      </option>
-                  </select>
-                </div>
-		<input type="submit" class="btn btn-primary " value="Submit New Order" id="submit">
+              <div class="form-group">
+                  <label for="modality">Modality Type (Scan):</label>
+                  <select class="form-control" id="modality" name="modality"  multiple>
+                    <option th:each="a : ${modality}"
+                            th:value="${a}"
+                            th:text="${a}">
+                    </option>
+                </select>
+              </div>
+              <input type="submit" class="btn btn-primary " value="Submit New Order" id="submit">
             </form>
         </div>
     </div>
