@@ -6,15 +6,25 @@
 package com.example.illustris.patient;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.example.illustris.schedule.Schedule;
 
 //TODO: add all Patient fields
 @Entity
@@ -23,8 +33,9 @@ public class Patient {
     @Id
     @SequenceGenerator(name = "patient_sequence", sequenceName = "patient_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_sequence")
-    @Column(name = "id", updatable = false)
+    @Column(name = "patient_id", updatable = false) 
     private Long id;
+
     @Column(name = "firstName", nullable = false, length = 30)
     private String firstName;
 
@@ -58,6 +69,13 @@ public class Patient {
     @Column(name = "notes", columnDefinition = "TEXT", nullable = true, length = 512)
     private String notes;
     
+    @ManyToOne( targetEntity = Schedule.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "schedule_id", referencedColumnName = "patient")
+    //private Set<Schedule> schedule;
+    //private Long scheduleId;
+    private Schedule schedule;
+
+
     public Patient() {
     }
 

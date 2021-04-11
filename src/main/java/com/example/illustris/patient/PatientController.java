@@ -35,12 +35,12 @@ public class PatientController {
 	}
 
     @PostMapping
-    public void registerNewUser(@RequestBody Patient patient){
+    public void addNewPatient(@RequestBody Patient patient){
         patientService.addNewPatient(patient);
     }
     
     @DeleteMapping(path= "{patientId}")
-    public void deleteUser(@PathVariable("patientId") Long patientId){
+    public void deletePatient(@PathVariable("patientId") Long patientId){
         patientService.deletePatient(patientId);
     }
 
