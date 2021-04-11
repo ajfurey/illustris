@@ -31,7 +31,7 @@ public class PatientController {
 
     @GetMapping
 	public List<Patient> getPatients(){
-		return patientService.getPatients();
+		return patientService.getAllPatients();
 	}
 
     @PostMapping

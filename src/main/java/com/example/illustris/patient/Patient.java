@@ -6,8 +6,6 @@
 package com.example.illustris.patient;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,9 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -69,11 +65,11 @@ public class Patient {
     @Column(name = "notes", columnDefinition = "TEXT", nullable = true, length = 512)
     private String notes;
     
-    @ManyToOne( targetEntity = Schedule.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_id", referencedColumnName = "patient")
+    //@ManyToOne( targetEntity = Schedule.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "schedule_id", referencedColumnName = "patient")
     //private Set<Schedule> schedule;
     //private Long scheduleId;
-    private Schedule schedule;
+    //private Schedule schedule;
 
 
     public Patient() {

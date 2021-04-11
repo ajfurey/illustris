@@ -22,9 +22,14 @@ public class PatientService {
         this.patientRepository = patientRepository;
     }
 
-    public List<Patient> getPatients() {
+    public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
+
+	public Patient findPatient(Long id) {
+		return patientRepository.find(id);
+		
+	}
 
     public void addNewPatient(Patient patient) {
         Optional<Patient> patientOptional = patientRepository.
@@ -62,4 +67,6 @@ public class PatientService {
 			patient.setBirthDate(birthDate);
 		}
     }
+
+	
 }

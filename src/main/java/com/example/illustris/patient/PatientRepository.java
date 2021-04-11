@@ -19,4 +19,8 @@ public interface PatientRepository extends JpaRepository<Patient, Long>{
     
     @Query("SELECT p FROM Patient p WHERE p.birthDate = ?1 and p.lastName = ?2")
     Optional<Patient> findPatientByBirthDateAndLastName(LocalDate birthDate, String lastName);
+
+    @Query("SELECT p FROM Patient p WHERE p.id = ?1")
+    Patient find(Long id);
+    
 }

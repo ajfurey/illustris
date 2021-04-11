@@ -1,8 +1,6 @@
 package com.example.illustris.schedule;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.example.illustris.patient.Patient;
 
@@ -15,10 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -36,9 +31,12 @@ public class Schedule {
     private LocalDateTime apptTime;
 
     
-    @ManyToOne( targetEntity = Patient.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient",referencedColumnName = "patient_id", insertable = true, updatable = true)
-    private Long patient;
+    //works@ManyToOne( targetEntity = Patient.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "patient",referencedColumnName = "patient_id", insertable = true, updatable = true)
+    //private Long patient;
+    @ManyToOne()
+    @JoinColumn(nullable = false, name = "patient_id", insertable = true)
+    private Patient patient;
 
     @Column(name = "orderId", nullable = false)
     private int orderId;
@@ -52,7 +50,7 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(Long id, LocalDateTime apptTime, Long patient, int orderId, LocalDateTime dateCreated,
+    public Schedule(Long id, LocalDateTime apptTime, Patient patient, int orderId, LocalDateTime dateCreated,
             LocalDateTime dateEdited) {
         this.id = id;
         this.apptTime = apptTime;
@@ -60,9 +58,10 @@ public class Schedule {
         this.orderId = orderId;
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
+        
     }
 
-    public Schedule(LocalDateTime apptTime, Long patient, int orderId, LocalDateTime dateCreated,
+    public Schedule(LocalDateTime apptTime, Patient patient, int orderId, LocalDateTime dateCreated,
             LocalDateTime dateEdited) {
         this.apptTime = apptTime;
         this.patient = patient;
@@ -87,11 +86,11 @@ public class Schedule {
         this.apptTime = apptTime;
     }
 
-    public Long getPatient() {
+    public Patient getPatient() {
         return patient;
     }
 
-    public void setPatient(Long patient) {
+    public void setPatient(Patient patient) {
         this.patient = patient;
     }
 
