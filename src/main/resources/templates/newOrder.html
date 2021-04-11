@@ -1,145 +1,113 @@
-<!DOCTYPE html>
-<html>
+<<!doctype html>
+<html  html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>New Order</title>
- <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
- <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
- <!--Bundle includes Popper.js-->
- <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Patient</title>
+<!--JQuery-->
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<!--Bundle includes Popper.js-->
+<script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!--font awsone icons-->
-<link rel="stylesheet" href="css/all.min.css">
-
- <!--custom css file-->
-<link rel="stylesheet" href="css/style.css">
-
-<script>
-function showResult(str) {
-  if (str.length==0) {
-    document.getElementById("livesearch").innerHTML="";
-    document.getElementById("livesearch").style.border="0px";
-    return;
-  }
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("livesearch").innerHTML=this.responseText;
-      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
-    }
-  }
-  xmlhttp.open("GET","FILE WITH PATIENT INFO?q="+str,true);
-  xmlhttp.send();
-}
-</script>
+<script src="/js/newOrder.js"></script>
 </head>
 <body>
 <!--=================Start Header Area====================-->
 <header class="header area">
-  <div class="main-menu">
-      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/main">
-              <img src="/images/logo.svg" alt="" width="40" class="d-inline-block align-middle">
-             Illustris
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">                  
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="/medical/newPatient">Patient Registration</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"aria-current="page" href="#">Referral</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"aria-current="page" href="/medical/newOrder">Order</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page"href="#"> Appointments</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page"href="#">Image Upload</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link"aria-current="page" href="#">Diagnosis</a>
-                </li>   
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Settings
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/user">Account</a>
-                    <a class="dropdown-item" href="/admin">Admin</a>
-                    <a class="dropdown-item" href="/logout">Logout</a>
-                  </ul>
-                </li>           
-              </ul>
-              </div>
-          </div>
-        </nav>
-  </div>
+    <div class="main-menu">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/main">
+                <img src="/images/logo.svg" alt="" width="40" class="d-inline-block align-middle">
+               Illustris
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">                  
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/medical/newPatient">Patient Registration</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"aria-current="page" href="#">Referral</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"aria-current="page" href="/medical/newOrder">Order</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page"href="#"> Appointments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page"href="#">Image Upload</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"aria-current="page" href="#">Diagnosis</a>
+                  </li>   
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Settings
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="/user">Account</a>
+                      <a class="dropdown-item" href="/admin">Admin</a>
+                      <a class="dropdown-item" href="/logout">Logout</a>
+                    </ul>
+                  </li>           
+                </ul>
+                </div>
+            </div>
+          </nav>
+    </div>
 </header>
 <!--=================End Header Area====================-->
 <div class="container-fluid">
-<h1>Create a New Order</h1>
+    <div class="row justify-content-center">
+        <div  class="col-lg-4 d-grid mt-3">
+            <H1>Schedule an Appointment</H1>
+        </div>
+    </div>
 
+    <div class="row justify-content-center">
+        <div  class="col-lg-4 d-grid mt-2">
+            <form class="row g-3">
+		
+		<div class="row">
+     	 		<div class="col-xs-4">
+       		 	<h3>Search patient by birthdate</h3>
+                	<input type="date"  class="form-control" name="birthDate" placeholder="YYYY-MM-DD Date of Birth" id="birthDate" required>
+        		<select id="birthDate"  name="birthDate" class="selectpicker with-ajax" multiple data-live-search="true">
+            		</select>
+      			</div>
+   		 </div>
+ 	 </div><br>
+		
+                <div class="form-group col-md-5">
+                    <label for="visitReason">Visit Reason:</label>
+                    <input type="text" class="form-control" placeholder=" " name="visitReason" id="visitReason" >
+                </div>
 
-<form method= "post"  action=" Andrew the following page goes here ">
-  <form>
-  Search Patient (by birthdate)<br>
-  <input type="text" size="30" onkeyup="showResult(this.value)">
-  <div id="livesearch"></div>
-    </form><br>
-    <p>Patient info</p>
-      <table>
-                  <tr>
-                      <th>DOB</th>
-                      <th>First</th> 
-                      <th>Middle</th>
-                      <th>Last</th>
-                      <th>email</th>
-                      <th>phone</th>
-                  </tr>
-    <?php   
-      $select = $db->prepare("SELECT * FROM people");
-      $select->execute();
-          
-            // output data of each row
-            while($row = $select->fetch()) {
-            echo('          
-                  <tr>
-                      <td>'. $row["dob"].'</td>
-                      <td>'. $row["fname"].'</td>
-                      <td>'. $row["lname"].'</td>
-                      <td>'. $row["email"].'</td>
-                      <td>'. $row["phone"].'</td>
-                  </tr>        
-              ');
-            }
-    ?>
-  </table>
-    
-    
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" value=""><br><br>
+                <div class="form-group col-md-5">
+                    <label for="imagingNeeded">Imaging Needed:</label>
+                    <input type="text" class="form-control" placeholder=" " name="imagingNeeded" id="imagingNeeded">
+                </div>
 
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" value=""><br><br>
-    
-    <label for="contact">Contacted Patient?</label><br>
-    <select name="contact" value="">
-                  <option value="">Select</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-  
-    </select><br><br>
-    <label for="vist">Visit Reason:</label><br>
-    <input type="text" id="lname" value=""><br><br>
-    
-    <input type="submit" value="Submit">
-  </form> 
+                <div class="form-group">
+                    <label for="modality">Modality Type (Scan):</label>
+                    <select class="form-control" id="modality" name="modality"  multiple>
+                      <option th:each="a : ${modality}"
+                              th:value="${a}"
+                              th:text="${a}">
+                      </option>
+                  </select>
+                </div>
+		<input type="submit" class="btn btn-primary " value="Submit New Order" id="submit">
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
