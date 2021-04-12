@@ -2,6 +2,7 @@ package com.example.illustris.schedule;
 
 import java.time.LocalDateTime;
 
+import com.example.illustris.order.Order;
 import com.example.illustris.patient.Patient;
 
 import javax.persistence.CascadeType;
@@ -34,12 +35,14 @@ public class Schedule {
     //works@ManyToOne( targetEntity = Patient.class, cascade= CascadeType.ALL, fetch = FetchType.LAZY)
     //@JoinColumn(name = "patient",referencedColumnName = "patient_id", insertable = true, updatable = true)
     //private Long patient;
-    @ManyToOne()
+    @ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(nullable = false, name = "patient_id", insertable = true)
     private Patient patient;
 
-    @Column(name = "orderId", nullable = false)
-    private int orderId;
+    //@Column(name = "orderId", nullable = false)
+    @ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "order_id", insertable = true)
+    private Order order;
 
     @Column(name = "dateCreated", nullable = false)
     private LocalDateTime dateCreated;
@@ -50,22 +53,22 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(Long id, LocalDateTime apptTime, Patient patient, int orderId, LocalDateTime dateCreated,
+    public Schedule(Long id, LocalDateTime apptTime, Patient patient, Order order, LocalDateTime dateCreated,
             LocalDateTime dateEdited) {
         this.id = id;
         this.apptTime = apptTime;
         this.patient = patient;
-        this.orderId = orderId;
+        this.order = order;
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
         
     }
 
-    public Schedule(LocalDateTime apptTime, Patient patient, int orderId, LocalDateTime dateCreated,
+    public Schedule(LocalDateTime apptTime, Patient patient, Order order, LocalDateTime dateCreated,
             LocalDateTime dateEdited) {
         this.apptTime = apptTime;
         this.patient = patient;
-        this.orderId = orderId;
+        this.order = order;
         this.dateCreated = dateCreated;
         this.dateEdited = dateEdited;
     }
@@ -94,12 +97,12 @@ public class Schedule {
         this.patient = patient;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public LocalDateTime getDateCreated() {
@@ -121,7 +124,7 @@ public class Schedule {
     @Override
     public String toString() {
         return "Schedule [apptTime=" + apptTime + ", dateCreated=" + dateCreated + ", dateEdited=" + dateEdited
-                + ", id=" + id + ", orderId=" + orderId + ", patient=" + patient + "]";
+                + ", id=" + id + ", order=" + order + ", patient=" + patient + "]";
     }
 
     

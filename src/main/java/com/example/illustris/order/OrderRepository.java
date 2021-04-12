@@ -15,4 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     //SELECT * FROM student WHERE email= ?
     @Query("SELECT s FROM Order s WHERE s.id = ?1")//Order is class name not db
     Optional<Order> findOrderByID(Long id);
+
+    @Query("SELECT o FROM Order o WHERE o.id = ?1")
+    Order find(Long id);
 }

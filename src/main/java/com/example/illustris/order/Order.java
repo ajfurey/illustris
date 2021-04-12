@@ -18,7 +18,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-//TODO: add all Patient fields
 @Entity
 @Table(name = "order", schema = "public")
 public class Order {
@@ -37,7 +36,7 @@ public class Order {
     @Column(name = "visitReason", columnDefinition = "TEXT", nullable = false, length = 350)
     private String visitReason;
 
-    @Column(name = "imagingNeeded", columnDefinition = "TEXT", nullable = false, length = 350)
+    @Column(name = "imagingNeeded", columnDefinition = "TEXT", nullable = false, length = 256)
     private String imagingNeeded;
 
     @Enumerated(EnumType.STRING)

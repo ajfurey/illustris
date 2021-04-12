@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.example.illustris.order.Order;
 import com.example.illustris.patient.Patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,10 @@ public class ScheduleController {
 
     @PostMapping()
     public void createNewAppt(@RequestBody Schedule schedule){
-        
+        if (schedule !=null) {
+			throw new IllegalStateException(schedule.getPatient().getId().toString());
+		}
+     
         scheduleService.createNewAppt(schedule);
     }
     
@@ -48,7 +52,7 @@ public class ScheduleController {
         @PathVariable("scheduleId") Long scheduleId,
         @RequestParam(required = false) LocalDateTime apptTime,
         @RequestParam(required = false) Patient patientId,
-        @RequestParam(required = false) int orderId
+        @RequestParam(required = false) Order orderId
     ){
         scheduleService.uadateSchedule(scheduleId, apptTime, patientId, orderId);
     }

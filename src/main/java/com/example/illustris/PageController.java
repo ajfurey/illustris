@@ -15,6 +15,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
     
     
+    @GetMapping("/")
+    public String index(Model model) {
+
+        // add `message` attribute
+        model.addAttribute("message", "Thank you for visiting.");
+        
+        // return view name
+        return "index";
+    }
+
     //adds template as an index
     @GetMapping("/main")
     public String mainPage(Model model) {
@@ -48,6 +58,13 @@ public class PageController {
         model.addAttribute("allergy", allergies);
         // return view name
         return "newPatient";
+    }
+
+    @GetMapping("medical/imaging")
+    public String image() {
+
+        // return view name
+        return "imaging";
     }
 
     @GetMapping("admin/newUser")

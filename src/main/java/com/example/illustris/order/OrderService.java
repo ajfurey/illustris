@@ -6,7 +6,6 @@
 package com.example.illustris.order;
 
 import java.util.List;
-import java.util.Objects;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -26,6 +25,11 @@ public class OrderService {
     public List<Order> getOrders() {
         return orderRepository.findAll();
     }
+
+    public Order findOrder(Long id) {
+		return orderRepository.find(id);
+		
+	}
 
     public void addNewOrder(Order order) {
         Optional<Order> orderOptional = orderRepository.
