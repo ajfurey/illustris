@@ -67,6 +67,13 @@ public class PageController {
         return "imaging";
     }
 
+    @GetMapping("medical/diagnosis")
+    public String diagnostic() {
+
+        // return view name
+        return "diagnosis";
+    }
+
     @GetMapping("admin/newUser")
     public String newUserPage(Model model) {
         Title titles[]= Title.values();
