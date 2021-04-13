@@ -60,12 +60,12 @@ public class PageController {
         return "newPatient";
     }
 
-    @GetMapping("medical/imaging")
+    /*@GetMapping("medical/imaging")
     public String image() {
 
         // return view name
         return "imaging";
-    }
+    }*/
 
     @GetMapping("medical/diagnosis")
     public String diagnostic() {

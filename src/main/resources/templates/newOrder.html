@@ -78,10 +78,31 @@
       <h3>Search patient by birthdate</h3>
       <form class="row g-3">
         <div class="form-group">
+          <input type="date"  class="form-control" name="birthDate1" placeholder="YYYY-MM-DD Date of Birth" id="birthDate1" required>
+        </div>
+        <div class="form-group">
+          <label for="patientName">pname:</label>
+          <input type="text" class="form-control" name="patientName" id="patientName">
+        </div>
+        <input type="find" class="btn btn-primary " value="Find" id="find">
+      </form>
+    </div>
+  </div>
+    
+  <div class="row justify-content-center">
+    <div  class="col-lg-4 d-grid mt-3">
+      <h3>Search patient by birthdate</h3>
+      <form class="row g-3">
+        <!--<div class="form-group">
           <input type="date"  class="form-control" name="birthDate" placeholder="YYYY-MM-DD Date of Birth" id="birthDate" required>
           <select id="birthDate"  name="birthDate" class="selectpicker with-ajax" multiple data-live-search="true">
+
           </select>
         </div>
+        <div class="form-group">
+          <label for="patientName">pname:</label>
+          <input type="text" class="form-control" name="patientName" id="patientName">
+        </div>-->
         <div class="form-group">
           <label for="visitReason">Visit Reason:</label>
           <textarea  class="form-control" name="visitReason" id="visitReason" placeholder="visitReason"  required rows="4" maxlength="350"></textarea>
