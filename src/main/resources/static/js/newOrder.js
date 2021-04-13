@@ -1,14 +1,14 @@
 
 function patientOutput(data) {
-  alert(data.firstName);
   var msg="";
   var msg2="";
+  console.log(data)
   Object.keys(data).forEach(function(key) {
     msg+="<th>"+key+"</th>";
     msg2+="<td>"+data[key]+"</td>";
   })
-  $("#bob").html(msg);
-  $("#frank").html(msg2);
+  $("#pKey").html(msg);
+  $("#pValue").html(msg2);
 }
 
 $(document).ready(function(){
