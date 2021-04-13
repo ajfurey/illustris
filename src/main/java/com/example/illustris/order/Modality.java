@@ -4,7 +4,7 @@ public enum Modality {
     
     CT_Scan,
     Echo,
-    Mamogram,
+    Mammogram,
     MRI,
     Ultrasound,
     XRay,
