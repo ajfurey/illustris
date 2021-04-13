@@ -1,6 +1,7 @@
 package com.example.illustris;
 
 
+import com.example.illustris.order.file.FileUpload;
 import com.example.illustris.order.Modality;
 import com.example.illustris.patient.Allergy;
 import com.example.illustris.user.Title;
@@ -60,12 +61,15 @@ public class PageController {
         return "newPatient";
     }
 
-    /*@GetMapping("medical/imaging")
-    public String image() {
-
+    @GetMapping("medical/imaging")
+    public String image(Model model) {
+        FileUpload fileUpload = new FileUpload();
+        model.addAttribute("fileUpload", fileUpload);
         // return view name
         return "imaging";
-    }*/
+    }
+
+
 
     @GetMapping("medical/diagnosis")
     public String diagnostic() {

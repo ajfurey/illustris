@@ -34,6 +34,12 @@ public class PatientController {
 		return patientService.getAllPatients();
 	}
 
+    @GetMapping(path = "onePatient")
+	public Patient getPatient(@RequestParam(value = "patientBDay") String DOB){
+        LocalDate localDate = LocalDate.parse(DOB);
+		return patientService.findPatient(localDate);
+	}
+
     @PostMapping
     public void addNewPatient(@RequestBody Patient patient){
         patientService.addNewPatient(patient);

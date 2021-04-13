@@ -3,6 +3,15 @@
 //@Email:
 //@FileName: userRequest.http
 
+###
+GET http://localhost:8080/patient/onePatient
+Content-Type: application/json
+
+{
+    
+    "patientBDay" : "1970-04-15"
+}
+
 
 ###
 POST http://localhost:8080/schedule/

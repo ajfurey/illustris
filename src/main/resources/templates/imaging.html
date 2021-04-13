@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imaging</title>
 <!--JQuery-->
-<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
  <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
  <!--Bundle includes Popper.js-->
  <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
- <script src="js/test.js"></script>
+ <script src="/js/upload.js"></script>
 
 </head>
 <body>
@@ -97,29 +97,39 @@
                 <label for="apptTime">Image to Upload</label>
                 <input type="image" class="form-control" name="apptTime" id="apptTime" >
             </div>
-            <input type="submit" class="btn btn-primary " value="Submit" id="submit">
+            <input type="submit" class="btn btn-primary" value="Submit" id="submit">
         </form>
     </div>
 </div>
 <div class="row justify-content-center">
-  <!--<div class="col-lg-4 d-grid mt-3">
-    <form class="row g-3"  method="POST"
-    action="" enctype="multipart/form-data">
+  <div class="col-lg-4 d-grid mt-3">
+    <form class="row g-3">
       Description:
       <br>
-      <input th:field="*{description}" style="width:300px;"/>                
+      <input th:field="${fileUpload.description}" class="form-control" name="uploadOneDesc" id="uploadOneDesc"/>              
       <br/><br/>  
-      File to upload: <input th:field="*{fileDatas}" type="file"/>
-      <br />  
-      <input type="submit" value="Upload">
+      File to upload: <input class="form-control" th:field="${fileUpload.fileDatas}" type="file">
+      <br />
+      <input type="submit" class="btn btn-primary" value="Upload" id="uploadOne">
     </form>
   </div>
-  <div class="col-lg-4 d-grid mt-3">-->
+  <div class="col-lg-4 d-grid mt-3">
     
   </div>
 </div>
 <div class="row justify-content-center">
-  
+  Description: <span th:utext="${description}"></span>
+      <br/>
+      <h3>Uploaded Files:</h3>
+       
+      <ul th:each="file : ${uploadedFiles}">
+         <li th:utext="${file}"></li>  
+      </ul>      
+       
+      <h3>Failed:</h3>
+      <ul th:each="file : ${failedFiles}">
+         <li style="color:red;" th:utext="${file}"></li>  
+      </ul>
 </div>
   
 </div>

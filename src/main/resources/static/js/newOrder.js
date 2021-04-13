@@ -1,4 +1,15 @@
 
+function patientOutput(data) {
+  alert(data.firstName);
+  var msg="";
+  var msg2="";
+  Object.keys(data).forEach(function(key) {
+    msg+="<th>"+key+"</th>";
+    msg2+="<td>"+data[key]+"</td>";
+  })
+  $("#bob").html(msg);
+  $("#frank").html(msg2);
+}
 
 $(document).ready(function(){
 
@@ -9,16 +20,18 @@ $(document).ready(function(){
      
       
       var data={
-          "birthDate1":birthDate1,
-          "patientName":patientName,
+          "patientBDay":birthDate1,
+          //"patientName":patientName,
       };
 
       console.log(data);
-      /*$.ajax({
+      $.ajax({
           type : "GET",
-          url : "/user",
+          url : "/patient/onePatient",
           contentType : "application/json",
-          data : JSON.stringify(data),
-      })*/
+          data : data,
+          dataType:"JSON",
+          success : patientOutput
+      })
   });
 });

@@ -6,6 +6,7 @@
 package com.example.illustris.patient;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,6 +22,8 @@ public interface PatientRepository extends JpaRepository<Patient, Long>{
     Optional<Patient> findPatientByBirthDateAndLastName(LocalDate birthDate, String lastName);
 
     @Query("SELECT p FROM Patient p WHERE p.id = ?1")
-    Patient find(Long id);
+    Patient find(long PID);
+
+
     
 }

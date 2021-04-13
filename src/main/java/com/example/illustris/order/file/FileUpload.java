@@ -1,4 +1,4 @@
-package com.example.illustris.order;
+package com.example.illustris.order.file;
 
 import org.springframework.web.multipart.MultipartFile;
 

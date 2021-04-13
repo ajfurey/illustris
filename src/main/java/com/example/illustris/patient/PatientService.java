@@ -6,6 +6,7 @@
 package com.example.illustris.patient;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -26,8 +27,8 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
-	public Patient findPatient(Long id) {
-		return patientRepository.find(id);
+	public Patient findPatient(LocalDate birthDate) {
+		return patientRepository.findPatientByBirthDate(birthDate).get();
 		
 	}
 
@@ -68,5 +69,6 @@ public class PatientService {
 		}
     }
 
+   
 	
 }

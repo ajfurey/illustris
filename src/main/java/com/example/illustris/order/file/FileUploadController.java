@@ -1,4 +1,4 @@
-package com.example.illustris.order;
+package com.example.illustris.order.file;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,15 +19,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model; 
 
 @RestController
-@RequestMapping(path = "medical")
+@RequestMapping(path = "/upload")
 public class FileUploadController {
     
-    @GetMapping("/imaging")
+    /*@GetMapping("/imaging")
     public String uploadOneFileGet(Model model) {
        FileUpload fileUpload = new FileUpload();
         model.addAttribute("FileUpload", fileUpload);
         return "imaging";
-    }
+    }*/
 
     @PostMapping(path="/oneFile")
     public String uploadOneFilePost(@RequestBody HttpServletRequest request,
@@ -58,7 +58,7 @@ public class FileUploadController {
       System.out.println("Description: " + description);
  
       // Root Directory.
-      String uploadRootPath = request.getServletContext().getRealPath("upload");
+      String uploadRootPath = request.getServletContext().getRealPath("/");
       System.out.println("uploadRootPath=" + uploadRootPath);
  
       File uploadRootDir = new File(uploadRootPath);

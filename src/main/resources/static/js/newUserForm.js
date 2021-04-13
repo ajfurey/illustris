@@ -3,7 +3,7 @@
 $(document).ready(function(){
 
     $("#submit").click(function(){
-        var firstName= $("#firstName").val()
+        var firstName= $("#firstName").val();
         var lastName=$("#lastName").val();
         var username=$("#username").val();
         var email=$("#email").val();

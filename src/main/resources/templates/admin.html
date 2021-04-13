@@ -3,10 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Admin</title>
+<!--JQuery-->
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
  <!--These Bootstrap 5.0 dependencies are added in POM file which also contains version number -->
  <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
  <!--Bundle includes Popper.js-->
  <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="/js/admin.js"></script>
 </head>
 
 <body>
@@ -63,6 +66,22 @@
             <div class="col-lg-4 d-grid">
                 <button onclick="window.location.href='/main';" type="button" class="btn btn-primary m-2">Main</button>
             </div>
+        </div>
+        <div class="row justify-content-center">
+          <div  class="col-lg-4 d-grid mt-3">
+            <table class="table table-hover">
+              <thead>
+                <tr id="userKey">
+                  
+                </tr>
+              </thead>
+              <tbody id="uTable">
+                <tr id="userValue">
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
     </div>
 </body>
