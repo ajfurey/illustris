@@ -10,36 +10,38 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig{
     
+    AuthenticationManager authenticationManager;
+
     @Autowired
     UserService userService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
-    }
+   @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        String Admin = UserRole.Admin.roleUpCase();
+        String Medical = UserRole.Medical.roleUpCase();
+        String User = UserRole.User.roleUpCase();
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        String Admin=UserRole.Admin.roleUpCase();
-        String Medical=UserRole.Medical.roleUpCase();
-        String User=UserRole.User.roleUpCase();
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/admin/").hasRole(Admin)
-                .antMatchers("/user/**").hasAnyRole(Admin, User, Medical)
-                .antMatchers("/medical").hasAnyRole(Admin, Medical)
-                .antMatchers("/").permitAll()
-                .and().formLogin()
-                .successHandler(authenticationSuccessHandler())
-                .and().logout().permitAll();
+        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.userDetailsService(userService);
+        authenticationManager = authenticationManagerBuilder.build();
+
+        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests()
+        .requestMatchers("/admin/").hasRole(Admin)
+        .requestMatchers("/user/**").hasAnyRole(Admin, User, Medical)
+        .requestMatchers("/medical").hasAnyRole(Admin, Medical)
+        .requestMatchers("/").permitAll().and().formLogin()
+        .successHandler(authenticationSuccessHandler()).and().logout().permitAll();
+
+        return http.build();
     }
 
     @Bean
@@ -47,11 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return NoOpPasswordEncoder.getInstance();
     }
 
-    @Bean("authenticationManager")
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-            return super.authenticationManagerBean();
-    }
 
     @Bean
     public AuthenticationSuccessHandler authenticationSuccessHandler(){
