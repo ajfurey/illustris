@@ -34,12 +34,12 @@ public class SecurityConfig{
         authenticationManagerBuilder.userDetailsService(userService);
         authenticationManager = authenticationManagerBuilder.build();
 
-        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests()
+        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(authorize -> authorize
         .requestMatchers("/admin/").hasRole(Admin)
         .requestMatchers("/user/**").hasAnyRole(Admin, User, Medical)
         .requestMatchers("/medical").hasAnyRole(Admin, Medical)
-        .requestMatchers("/").permitAll().and().formLogin()
-        .successHandler(authenticationSuccessHandler()).and().logout().permitAll();
+        .requestMatchers("/").permitAll()).formLogin(formLogin -> formLogin
+        .successHandler(authenticationSuccessHandler())).logout(logout -> logout.permitAll());
 
         return http.build();
     }
